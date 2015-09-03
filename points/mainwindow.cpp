@@ -32,9 +32,6 @@ void MainWindow::createActions()
     actCreatePoint->setStatusTip(tr("Create point"));
     actCreatePoint->setCheckable(true);
 
-    //QToolButton *b = new QToolButton;
-    //b->setIcon(QIcon(":/images/point.png"));
-
     connect(actCreatePoint, &QAction::triggered, this, &MainWindow::createPoint);
 
     actDeletePoint = new QAction(QIcon(":/images/cross.png"), tr("&Delete point"), this);
@@ -43,21 +40,36 @@ void MainWindow::createActions()
 
     connect(actDeletePoint, &QAction::triggered, this, &MainWindow::deletePoint);
 
+    actCreateLine = new QAction(QIcon(":/images/line.png"), tr("&Create line"), this);
+    actCreateLine->setStatusTip(tr("Create line"));
+    actCreateLine->setCheckable(true);
+
+    connect(actCreateLine, &QAction::triggered, this, &MainWindow::createLine);
+
     toolBar = addToolBar(tr("Tools"));
     toolBar->setIconSize(QSize(64, 64));
     toolBar->addAction(actCreatePoint);
     toolBar->addAction(actDeletePoint);
-    //toolBar->addWidget(b);
+    toolBar->addAction(actCreateLine);
 }
 
 void MainWindow::createPoint()
 {
     actDeletePoint->setChecked(false);
+    actCreateLine->setChecked(false);
     view->createPoint();
 }
 
 void MainWindow::deletePoint()
 {
     actCreatePoint->setChecked(false);
+    actCreateLine->setChecked(false);
     view->deletePoint();
+}
+
+void MainWindow::createLine()
+{
+    actDeletePoint->setChecked(false);
+    actCreatePoint->setChecked(false);
+    view->createLine();
 }

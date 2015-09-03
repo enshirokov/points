@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 
 #include "point.h"
+#include "line.h"
 
 class View : public QGraphicsView
 {
@@ -17,6 +18,7 @@ public slots:
     void addPoint(const QPoint &p);
     void createPoint();
     void deletePoint();
+    void createLine();
 
 protected:
     void mousePressEvent(QMouseEvent *event) Q_DECL_OVERRIDE;
@@ -32,6 +34,7 @@ private:
 
     bool createPointFlag;
     bool deletePointFlag;
+    bool createLineFlag;
 };
 
 #endif // MYVIEW_H

@@ -6,11 +6,18 @@
 class Point : public QGraphicsItem
 {
 public:
-    Point(const QColor &color, int x, int y);
+    explicit Point(const QColor &color = Qt::red, int x = 0, int y = 0, QGraphicsItem *parent = 0);
+    //Point(const Point &other);
+
+    //Point& operator= (const Point& other);
 
     QRectF boundingRect() const;
     QPainterPath shape() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *item, QWidget *widget);
+
+    qreal rx() { return sX; }
+    qreal ry() { return sY; }
+
 
 protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event);
@@ -18,9 +25,9 @@ protected:
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event);
 
 private:
-    int x, y;
+    qreal x0, y0;
+    qreal sX, sY;
     QColor color;
-    QList<QPointF> stuff;
 };
 
 #endif // POINT_H

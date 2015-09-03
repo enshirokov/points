@@ -41,6 +41,10 @@ void View::mousePressEvent(QMouseEvent *event)
         QGraphicsItem *item = itemAt(event->pos());
         scene->removeItem(item);
     }
+    
+    if(createLineFlag) {
+        
+    }
 
 
     QGraphicsView::mousePressEvent(event);

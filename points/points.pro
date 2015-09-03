@@ -15,11 +15,13 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     view.cpp \
-    point.cpp
+    point.cpp \
+    line.cpp
 
 HEADERS  += mainwindow.h \
     view.h \
-    point.h
+    point.h \
+    line.h
 
 FORMS    +=
 

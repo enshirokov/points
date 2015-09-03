@@ -23,12 +23,14 @@ private:
 private slots:
     void createPoint();
     void deletePoint();
+    void createLine();
 
 private:
     View *view;
 
     QAction *actCreatePoint;
     QAction *actDeletePoint;
+    QAction *actCreateLine;
 
     QToolBar *toolBar;
 
