@@ -2,10 +2,12 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QPushButton>
+#include <QAction>
+#include <QToolBar>
+#include <QToolButton>
 
-namespace Ui {
-class MainWindow;
-}
+#include "view.h"
 
 class MainWindow : public QMainWindow
 {
@@ -16,7 +18,20 @@ public:
     ~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+    void createActions();
+
+private slots:
+    void createPoint();
+    void deletePoint();
+
+private:
+    View *view;
+
+    QAction *actCreatePoint;
+    QAction *actDeletePoint;
+
+    QToolBar *toolBar;
+
 };
 
 #endif // MAINWINDOW_H
